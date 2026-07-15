@@ -513,6 +513,7 @@ HISTORIA
     transparent 70%);
 
     pointer-events:none;
+    overflow:hidden;
 
 }
 
@@ -1224,4 +1225,274 @@ ACCESIBILIDAD Y MOVIMIENTO REDUCIDO
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+/*====================================================
+IDEAS DE REGALO
+====================================================*/
+
+.regalos-encabezado{
+
+    max-width:780px;
+
+    margin:0 auto 55px;
+
+    text-align:center;
+
+}
+
+.regalo-icono{
+
+    display:block;
+
+    margin-bottom:15px;
+
+    font-size:3.5rem;
+
+}
+
+.regalos-encabezado h2{
+
+    margin-bottom:22px;
+
+    color:#F8E6A0;
+
+    font-family:'Cinzel',serif;
+
+    font-size:2.8rem;
+
+}
+
+.regalos-encabezado p{
+
+    color:#FFFFFF;
+
+    font-size:1.08rem;
+
+    line-height:1.9;
+
+}
+
+.regalos-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,minmax(0,1fr));
+
+    gap:22px;
+
+    max-width:1100px;
+
+    margin:auto;
+
+}
+
+.regalo-card{
+
+    position:relative;
+
+    padding:30px 22px;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,.22);
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.13);
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.20);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+
+}
+
+.regalo-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-70px;
+
+    right:-70px;
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    background:rgba(255,215,79,.12);
+
+    pointer-events:none;
+
+}
+
+.regalo-card:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(255,255,255,.19);
+
+    box-shadow:
+        0 22px 45px rgba(0,0,0,.30),
+        0 0 22px rgba(255,215,79,.12);
+
+}
+
+.regalo-emoji{
+
+    display:block;
+
+    margin-bottom:17px;
+
+    font-size:2.8rem;
+
+}
+
+.regalo-card h3{
+
+    margin-bottom:13px;
+
+    color:#F8E6A0;
+
+    font-family:'Cinzel',serif;
+
+    font-size:1.2rem;
+
+}
+
+.regalo-card p{
+
+    color:#FFFFFF;
+
+    font-size:.95rem;
+
+    line-height:1.7;
+
+}
+
+.regalo-card strong{
+
+    color:#FFE082;
+
+}
+
+.regalos-cierre{
+
+    max-width:780px;
+
+    margin:50px auto 0;
+
+    text-align:center;
+
+    color:#F8E6A0;
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+}
+
+/* TABLET */
+
+@media(max-width:950px){
+
+    .regalos-grid{
+
+        grid-template-columns:repeat(2,minmax(0,1fr));
+
+    }
+
+}
+
+/* CELULAR */
+
+@media(max-width:600px){
+
+    .regalos-encabezado{
+
+        margin-bottom:38px;
+
+    }
+
+    .regalos-encabezado h2{
+
+        font-size:2rem;
+
+    }
+
+    .regalos-encabezado p{
+
+        font-size:.97rem;
+
+    }
+
+    .regalos-grid{
+
+        grid-template-columns:repeat(2,minmax(0,1fr));
+
+        gap:13px;
+
+    }
+
+    .regalo-card{
+
+        padding:23px 13px;
+
+        border-radius:19px;
+
+    }
+
+    .regalo-emoji{
+
+        font-size:2.2rem;
+
+    }
+
+    .regalo-card h3{
+
+        font-size:.96rem;
+
+        line-height:1.35;
+
+    }
+
+    .regalo-card p{
+
+        font-size:.82rem;
+
+        line-height:1.55;
+
+    }
+
+    .regalos-cierre{
+
+        margin-top:38px;
+
+        font-size:.94rem;
+
+    }
+
+}
+
+/* PANTALLAS MUY PEQUEÑAS */
+
+@media(max-width:360px){
+
+    .regalos-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
 }
