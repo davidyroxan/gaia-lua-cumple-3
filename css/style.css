@@ -1496,3 +1496,357 @@ IDEAS DE REGALO
     }
 
 }
+/*====================================================
+INTRODUCCIÓN DEL CUENTO
+====================================================*/
+
+.intro-cuento{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(45,32,18,.82),
+            rgba(0,0,0,.98) 70%
+        );
+
+    color:white;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+
+}
+
+.intro-cuento.ocultar-intro{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+}
+
+.intro-contenido{
+
+    position:relative;
+
+    z-index:3;
+
+    width:min(90%,700px);
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+.intro-texto{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:100%;
+
+    margin:0;
+
+    opacity:0;
+
+    transform:translate(-50%,-50%) translateY(20px);
+
+    color:#F8E6A0;
+
+    font-family:'Cinzel',serif;
+
+    font-size:clamp(1.4rem,4vw,2.4rem);
+
+    line-height:1.6;
+
+    text-shadow:
+        0 0 15px rgba(255,215,79,.35),
+        0 5px 20px rgba(0,0,0,.8);
+
+}
+
+.intro-texto-1{
+
+    animation:introFraseUno 4.6s ease forwards;
+
+}
+
+.intro-texto-2{
+
+    animation:introFraseDos 4.6s ease forwards;
+
+}
+
+.intro-final{
+
+    opacity:0;
+
+    transform:scale(.85);
+
+    animation:introFinal 4.6s ease forwards;
+
+}
+
+.intro-corona{
+
+    display:block;
+
+    margin-bottom:12px;
+
+    font-size:3.2rem;
+
+}
+
+.intro-final h2{
+
+    margin:0;
+
+    color:#F8E6A0;
+
+    font-family:'Cinzel',serif;
+
+    font-size:clamp(2.4rem,8vw,4.8rem);
+
+    text-shadow:
+        0 0 22px rgba(255,215,79,.4),
+        0 7px 25px rgba(0,0,0,.8);
+
+}
+
+.intro-final p{
+
+    margin-top:8px;
+
+    color:white;
+
+    font-size:clamp(1.1rem,4vw,1.7rem);
+
+}
+
+.intro-omitir{
+
+    position:absolute;
+
+    top:22px;
+
+    right:22px;
+
+    z-index:5;
+
+    padding:9px 17px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.09);
+
+    color:white;
+
+    font-family:'Poppins',sans-serif;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(8px);
+
+    transition:.3s ease;
+
+}
+
+.intro-omitir:hover{
+
+    background:rgba(255,255,255,.2);
+
+}
+
+.intro-estrellas{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+        radial-gradient(circle,#FFD54F 1.5px,transparent 2px),
+        radial-gradient(circle,#FFFFFF 1px,transparent 1.5px);
+
+    background-position:
+        20px 30px,
+        80px 100px;
+
+    background-size:
+        130px 130px,
+        170px 170px;
+
+    opacity:.35;
+
+    animation:moverEstrellas 7s linear infinite;
+
+}
+
+@keyframes introFraseUno{
+
+    0%,
+    5%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            translateY(20px);
+
+    }
+
+    12%,
+    28%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            translateY(0);
+
+    }
+
+    36%,
+    100%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            translateY(-20px);
+
+    }
+
+}
+
+@keyframes introFraseDos{
+
+    0%,
+    32%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            translateY(20px);
+
+    }
+
+    42%,
+    62%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            translateY(0);
+
+    }
+
+    70%,
+    100%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            translateY(-20px);
+
+    }
+
+}
+
+@keyframes introFinal{
+
+    0%,
+    67%{
+
+        opacity:0;
+
+        transform:scale(.85);
+
+    }
+
+    78%,
+    94%{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:scale(1.05);
+
+    }
+
+}
+
+@keyframes moverEstrellas{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-80px);
+
+    }
+
+}
+
+body.intro-activa{
+
+    overflow:hidden;
+
+}
+
+@media(max-width:600px){
+
+    .intro-contenido{
+
+        padding:20px;
+
+    }
+
+    .intro-omitir{
+
+        top:15px;
+
+        right:15px;
+
+        padding:8px 14px;
+
+        font-size:.85rem;
+
+    }
+
+}

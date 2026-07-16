@@ -6,8 +6,53 @@ Invitación Gaia Lua
 */
 
 document.addEventListener("DOMContentLoaded", iniciarAnimaciones);
+function iniciarIntroCuento(){
 
-function iniciarAnimaciones(){
+    const intro = document.getElementById("introCuento");
+    const botonOmitir = document.getElementById("introOmitir");
+
+    if(!intro) return;
+
+    /*
+    Siempre comenzamos desde arriba
+    */
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant"
+    });
+
+    document.body.classList.add("intro-activa");
+
+    const cerrarIntro = () => {
+
+        if(intro.classList.contains("ocultar-intro")) return;
+
+        intro.classList.add("ocultar-intro");
+
+        document.body.classList.remove("intro-activa");
+
+        setTimeout(() => {
+
+            intro.remove();
+
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "instant"
+            });
+
+        }, 850);
+
+    };
+
+    botonOmitir?.addEventListener("click", cerrarIntro);
+
+    setTimeout(cerrarIntro, 4600);
+
+}
+
+function iniciarAnimaciones() {
 
     iniciarIntroCuento();
 
@@ -30,6 +75,9 @@ function iniciarAnimaciones(){
     crearMariposas();
 
 }
+
+
+
 /*
 ====================================================
 HERO
@@ -361,8 +409,7 @@ function crearMariposas(){
 
     },5000);
 
-}
-/*
+}/*
 ====================================================
 INTRODUCCIÓN DEL CUENTO
 ====================================================
@@ -421,3 +468,20 @@ function iniciarIntroCuento(){
     setTimeout(cerrarIntro,4600);
 
 }
+/*
+====================================================
+REINICIAR POSICIÓN DE LA PÁGINA
+====================================================
+*/
+
+if ("scrollRestoration" in history) {
+
+    history.scrollRestoration = "manual";
+
+}
+
+window.addEventListener("beforeunload", () => {
+
+    window.scrollTo(0, 0);
+
+});
