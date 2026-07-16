@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", iniciarAnimaciones);
 
 function iniciarAnimaciones(){
 
+    iniciarIntroCuento();
+
     animacionHero();
 
     botonesInteractivos();
@@ -358,5 +360,64 @@ function crearMariposas(){
         },12000);
 
     },5000);
+
+}
+/*
+====================================================
+INTRODUCCIÓN DEL CUENTO
+====================================================
+*/
+
+function iniciarIntroCuento(){
+
+    const intro = document.getElementById("introCuento");
+
+    const botonOmitir = document.getElementById("introOmitir");
+
+    if(!intro) return;
+
+    const introVista = sessionStorage.getItem("introGaiaVista");
+
+    if(introVista === "si"){
+
+        intro.remove();
+
+        return;
+
+    }
+
+    document.body.classList.add("intro-activa");
+
+    const cerrarIntro = ()=>{
+
+        if(intro.classList.contains("ocultar-intro")) return;
+
+        intro.classList.add("ocultar-intro");
+
+        document.body.classList.remove("intro-activa");
+
+        sessionStorage.setItem("introGaiaVista","si");
+
+        setTimeout(()=>{
+
+            intro.remove();
+
+        },850);
+
+    };
+
+    botonOmitir?.addEventListener("click",cerrarIntro);
+
+    intro.addEventListener("click",(evento)=>{
+
+        if(evento.target === intro){
+
+            cerrarIntro();
+
+        }
+
+    });
+
+    setTimeout(cerrarIntro,4600);
 
 }
