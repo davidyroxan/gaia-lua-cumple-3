@@ -1850,3 +1850,12 @@ body.intro-activa{
     }
 
 }
+#btnComenzar{
+
+    border:none;
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+}

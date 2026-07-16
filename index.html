@@ -38,7 +38,21 @@
 
     <link rel="stylesheet"
         href="css/style.css">
+<script>
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
 
+    if (window.location.hash) {
+        history.replaceState(
+            null,
+            document.title,
+            window.location.pathname + window.location.search
+        );
+    }
+
+    window.scrollTo(0, 0);
+</script>
 </head>
 
 <body>
@@ -73,13 +87,14 @@
             ✨ Cumple 3 años ✨
         </h2>
 
-        <a
-            href="#historia"
-            class="scroll">
+        <button
+    type="button"
+    class="scroll"
+    id="btnComenzar">
 
-            ↓ Desliza para comenzar ↓
+    ↓ Desliza para comenzar ↓
 
-        </a>
+</button>
 
     </div>
 

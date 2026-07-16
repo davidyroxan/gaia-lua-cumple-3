@@ -36,12 +36,18 @@ function iniciarIntroCuento(){
 
             intro.remove();
 
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: "instant"
-            });
+document.documentElement.scrollTop = 0;
+document.body.scrollTop = 0;
 
+requestAnimationFrame(() => {
+
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "auto"
+    });
+
+});
         }, 850);
 
     };
@@ -481,6 +487,46 @@ if ("scrollRestoration" in history) {
 }
 
 window.addEventListener("beforeunload", () => {
+
+    window.scrollTo(0, 0);
+
+});
+/*
+====================================================
+BOTÓN PARA COMENZAR
+====================================================
+*/
+
+const btnComenzar = document.getElementById("btnComenzar");
+
+btnComenzar?.addEventListener("click", () => {
+
+    const historia = document.getElementById("historia");
+
+    historia?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+});
+
+/*
+====================================================
+INICIAR SIEMPRE DESDE ARRIBA
+====================================================
+*/
+
+if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+}
+
+window.addEventListener("load", () => {
+
+    history.replaceState(
+        null,
+        document.title,
+        window.location.pathname + window.location.search
+    );
 
     window.scrollTo(0, 0);
 
